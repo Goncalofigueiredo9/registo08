@@ -7,29 +7,23 @@
     <title>Registo</title>
 {% endblock %}
 {% block conteudo %}
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-<h1>Alterar a Password</h1>
+<h1>Iniciar Sessão</h1>
 <fieldset>
     <legend>Introduza os seus dados</legend>
     <form method="post">
         <h4>Utilizador</h4>
-        <input type="text" name='utilizador' required>
+        <input type='text' name='utilizador' required>
         <h4>Palavra-Passe</h4>
-        <input type="password" name='passe' required>
-        <h4>Confirme a Passe</h4>
-        <input type="password" name='cpasse' required>
+        <input type='password' name='passe' required>
         <p><br></p>
-        <input type='submit' value='Submeter'>
+        <input type='submit' value="Entrar">
     </form>
 </fieldset>
-
-
-{% if erro %}
-{{ erro }}
-{% endif %}
-
+{% if erro %}<h1>{{ erro }}</h1>{% endif %}
 </body>
 </html>
+
 {% endblock %}

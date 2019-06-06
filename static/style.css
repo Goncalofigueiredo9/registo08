@@ -1,6 +1,6 @@
 body {
     text-align:center;
-    background-color: lightgray;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -12,3 +12,157 @@ fieldset {
     margin: auto;
     border: 5px groove;
 }
+
+shop {
+  display: block;
+  font-size: 1em;
+  color: #C11;
+  margin-top:16px;
+  margin-bottom:16px;
+}
+
+moeda {
+  display: block;
+  color: #1C1;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 5px 15px;
+}
+
+input[type=text], input[type=password] {
+  width: 256px;
+}
+
+fieldset {
+  width: 256px;
+  padding: 50px;
+  background-color: lightgray;
+  border: 2px groove;
+}
+
+
+table, td {
+  background-color: lightgray;
+  border: 30px solid gray;
+  border-collapse: collapse;
+}
+
+td {
+  background-color: white;
+  text-align: center;
+  padding: 30px 10px;
+  width: 256px;
+  vertical-align: bottom;
+}
+
+.navbar user {
+  float: right;
+  padding: 12px;
+  color: #ff8;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #000;
+}
+
+.navbar {
+  width: 100%;
+  box-shadow: -10px -10px 25px #000;
+  text-transform: uppercase;
+  background-color: #fff;
+  overflow: auto;
+}
+
+.nav1 {
+  font-size: 15px;
+  float: left;
+  padding: 18px;
+  color: #000;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.nav1:hover {
+  background-color: #d9d9d9;
+}
+
+.active {
+  float: left;
+  padding: 18px;
+  color: #ff6600;ont-size: 15px;
+  font-weight: bold;
+  transition: 0.5s;
+  background-color: #fff;
+  text-decoration: none;
+  f
+}
+
+.active:hover {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+  }
+}
+
+
+
+.pagbar {
+  padding: 12px;
+  background-color: #555;
+}
+
+.pagbar a {
+  padding: 12px;
+  color: #39d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pagbar current {
+  padding: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.pagbar a:hover {
+  background-color: #000;
+}
+
+iframe {
+    box-shadow: 0px 0px 20px -10px #000;
+}
+
+
+.toTop:hover, .toTop:active, .toTop:focus:hover, .toTop:focus:active {
+    color: #fff;
+    background: #893e00;
+    text-decoration: none;
+}
+
+.toTop, .toTop:focus {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 46px;
+    border-radius: 50%;
+    color: #fff;
+    background: #ef6c00;
+    position: fixed;
+    right: 20px;
+    bottom: 60px;
+    display: none;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    z-index: 3;
+    transition: all 0.3s ease-in-out;
+}
+
+
