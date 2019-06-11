@@ -51,6 +51,7 @@ def route():
             erro = 'O Utilizador já existe.'
         elif v3 != v4:
             erro = 'A palavra passe não coincide.'
+
         else:
             gravar(v1, v2, v3)
     return render_template('registo.html', erro=erro)
@@ -98,6 +99,29 @@ def newpasse():
     return render_template('newpasse.html', erro=erro)
 
 
+def eliminar(v1):
+    import sqlite3
+    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    db = ficheiro.cursor()
+    db.execute("DELETE FROM usr WHERE nome = ?", (v1,))
+    ficheiro.commit()
+    ficheiro.close()
+    return
+
+@app.route('/apagar', methods=['POST', 'GET'])
+def apagar():
+    erro = None
+    if request.method == "POST":
+        v1 = request.form['usr']
+        v2 = request.form['pwd']
+        if not existe(v1):
+            erro = 'O Utilizador não existe.'
+        elif not log(v1, v2):
+            erro = 'A senha está incorreta.'
+        else:
+            eliminar(v1)
+            erro = 'Conta eliminada com Sucesso.'
+    return render_template('apagar.html', erro=erro)
 
 
 if __name__ == '__main__':

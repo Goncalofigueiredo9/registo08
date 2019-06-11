@@ -22,15 +22,18 @@
   {% if usr %}
   <user><i class="fa fa-fw fa-user-tie"></i> {{ usr }}</user>
   {% else %}
-  <a class="nav1" href="/login">Login</a>
+  <a class="nav1" href="/apagar">Eliminar Conta</a>
+  <a class="nav1" href="/newpasse">Alterar Passe</a>
   <a class="nav1" href="/registo">Registo</a>
-    <a class="nav1" href="/newpasse">Alterar Passe</a>
+  <a class="nav1" href="/login">Login</a>
   {% endif %}
 </div>
 {% block conteudo %}
 {% endblock %}
 
 <a class="toTop fa fa-angle-up" href="#" style="display: block;"></a>
+
+
 
 
 <h3 style="color:#bbb">&copy; Copyright 2019 Gonçalo Figueiredo</h3>
