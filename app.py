@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request
-
+import psycopg2
 app = Flask(__name__)
+
+def herokudb ():
+    Host='ec2-54-75-235-28.eu-west-1.compute.amazonaws.com'
+    Database='dd2rmrctaljpgb'
+    User='irljsysymdjjop'
+    Password='37264542c24fc076bf5bff97cd9d3d18d3b88cfd7a20c279b4bd6191e593e30e'
+    return psycopg2.connect(host=Host, database=Database, user=User, password=Password, sslmode='require')
+
+
 
 @app.route('/')
 def index():
@@ -9,31 +18,31 @@ def index():
 
 
 def gravar(v1, v2, v3):
-    import sqlite3
-    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    ficheiro = herokudb()
     db = ficheiro.cursor()
     db.execute("CREATE TABLE IF NOT EXISTS usr (nome text,email text, passe text)")
-    db.execute("INSERT INTO usr VALUES (?, ?, ?)", (v1, v2, v3))
+    db.execute("INSERT INTO usr VALUES (%s, %s, %s)", (v1, v2, v3))
     ficheiro.commit()
     ficheiro.close()
 
 
 def existe(v1):
-    import sqlite3
-    ficheiro = sqlite3.connect('db/Utilizadores.db')
-    db = ficheiro.cursor()
-    db.execute("SELECT * FROM usr WHERE nome = ?", (v1,))
-    valor = db.fetchone()
-    ficheiro.close()
+    try:
+        ficheiro = herokudb()
+        db = ficheiro.cursor()
+        db.execute("SELECT * FROM usr WHERE nome = %s", (v1,))
+        valor = db.fetchone()
+        ficheiro.close()
+    except:
+        valor=None
     return valor
 
 
 
 def log(v1, v2):
-    import sqlite3
-    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    ficheiro = herokudb()
     db = ficheiro.cursor()
-    db.execute("SELECT * FROM usr WHERE nome = ? and passe = ?", (v1, v2,))
+    db.execute("SELECT * FROM usr WHERE nome = %s and passe = %s", (v1, v2,))
     valor = db.fetchone()
     ficheiro.close()
     return valor
@@ -58,10 +67,9 @@ def route():
 
 
 def alterar(v1, v2):
-    import sqlite3
-    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    ficheiro = herokudb()
     db = ficheiro.cursor()
-    db.execute("UPDATE usr SET passe = ? WHERE nome = ?", (v2, v1))
+    db.execute("UPDATE usr SET passe = %s WHERE nome = %s", (v2, v1))
     ficheiro.commit()
     ficheiro.close()
 
@@ -100,10 +108,9 @@ def newpasse():
 
 
 def eliminar(v1):
-    import sqlite3
-    ficheiro = sqlite3.connect('db/Utilizadores.db')
+    ficheiro = herokudb()
     db = ficheiro.cursor()
-    db.execute("DELETE FROM usr WHERE nome = ?", (v1,))
+    db.execute("DELETE FROM usr WHERE nome = %s", (v1,))
     ficheiro.commit()
     ficheiro.close()
     return
