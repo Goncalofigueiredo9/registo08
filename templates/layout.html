@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" href="/static/favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="/static/style.css">
-{% block titulo %}
-{% endblock %}
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/static/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    {% block titulo %}
+    {% endblock %}
 
-<script type="text/javascript" src="/static/scroll.js"></script>
+    <script type="text/javascript" src="/static/scroll.js"></script>
 <body>
 
 
 {% set icons = ['fas fa-question', 'fas fa-archive', 'fas fa-microchip', 'fas fa-bone'] %}
 <div class="navbar">
-  <a class="active" href="/"><i class="fas fa-paw"></i>  PET CITY </a>
-  {% for nome in menu %}
-  <a class="nav1" href="/pr_ini/{{ nome.title }}"> {{ nome.title }}</a>
-  {% endfor %}
-  {% if usr %}
-  <user><i class="fa fa-fw fa-user-tie"></i> {{ usr }}</user>
-  {% else %}
-  <a class="nav1" href="/apagar">Eliminar Conta</a>
-  <a class="nav1" href="/newpasse">Alterar Passe</a>
-  <a class="nav1" href="/registo">Registo</a>
-  <a class="nav1" href="/login">Login</a>
-  {% endif %}
+    <a class="active" href="/"><i class="fas fa-paw"></i> PET CITY </a>
+    {% for nome in menu %}
+    <a class="nav1" href="/pr_ini/{{ nome.title }}"> {{ nome.title }}</a>
+    {% endfor %}
+    {% if usr %}
+    <user><i class="fa fa-fw fa-user-tie"></i> {{ usr }}</user>
+    {% else %}
+    <a class="nav1" href="/apagar">Eliminar Conta</a>
+    <a class="nav1" href="/newpasse">Alterar Passe</a>
+    <a class="nav1" href="/registo">Registo</a>
+    <a class="nav1" href="/login">Login</a>
+    {% endif %}
 </div>
 {% block conteudo %}
 {% endblock %}
 
 <a class="toTop fa fa-angle-up" href="#" style="display: block;"></a>
 
+<div class="footer">
+    <p>Segue-nos nas redes sociais!!</p>
+    <a class="twitter" href="https://twitter.com/login"><i class="fab fa-twitter"></i></i></a>
+    <a class="facebook" href="https://pt-pt.facebook.com/"><i class="fab fa-facebook-f"></i></i></a>
+    <a class="instagram" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+    <a class="youtube" href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+    <center>
+        <small>&copy; Copyright 2019 Gonçalo Figueiredo</small>
+    </center>
+</div>
 
 
 
-<h3 style="color:#bbb">&copy; Copyright 2019 Gonçalo Figueiredo</h3>
-  <p><br></p>
+
